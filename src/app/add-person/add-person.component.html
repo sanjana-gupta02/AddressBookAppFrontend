@@ -1,0 +1,17 @@
+<div class="container mx-auto p-6">
+    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Add New Person</h2>
+  
+    <form (submit)="saveContact()">
+      <input type="text" [(ngModel)]="newContact.name" placeholder="Full Name" class="border p-2 w-full mb-2">
+      <input type="text" [(ngModel)]="newContact.address" placeholder="Address" class="border p-2 w-full mb-2">
+      <input type="text" [(ngModel)]="newContact.city" placeholder="City" class="border p-2 w-full mb-2">
+      <input type="text" [(ngModel)]="newContact.state" placeholder="State" class="border p-2 w-full mb-2">
+      <input type="text" [(ngModel)]="newContact.zipCode" placeholder="Zip Code" class="border p-2 w-full mb-2">
+      <input type="text" [(ngModel)]="newContact.phone" placeholder="Phone Number" class="border p-2 w-full mb-2">
+      <input type="email" [(ngModel)]="newContact.email" placeholder="Email (optional)" class="border p-2 w-full mb-2">
+  
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Save</button>
+      <a routerLink="/" class="bg-gray-600 text-white px-4 py-2 rounded ml-2 hover:bg-gray-700">Cancel</a>
+    </form>
+  </div>
+  
