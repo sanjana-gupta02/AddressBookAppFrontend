@@ -1,17 +1,51 @@
-<div class="container mx-auto p-6">
-    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Add New Person</h2>
-  
-    <form (submit)="saveContact()">
-      <input type="text" [(ngModel)]="newContact.name" placeholder="Full Name" class="border p-2 w-full mb-2">
-      <input type="text" [(ngModel)]="newContact.address" placeholder="Address" class="border p-2 w-full mb-2">
-      <input type="text" [(ngModel)]="newContact.city" placeholder="City" class="border p-2 w-full mb-2">
-      <input type="text" [(ngModel)]="newContact.state" placeholder="State" class="border p-2 w-full mb-2">
-      <input type="text" [(ngModel)]="newContact.zipCode" placeholder="Zip Code" class="border p-2 w-full mb-2">
-      <input type="text" [(ngModel)]="newContact.phone" placeholder="Phone Number" class="border p-2 w-full mb-2">
-      <input type="email" [(ngModel)]="newContact.email" placeholder="Email (optional)" class="border p-2 w-full mb-2">
-  
-      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Save</button>
-      <a routerLink="/" class="bg-gray-600 text-white px-4 py-2 rounded ml-2 hover:bg-gray-700">Cancel</a>
+<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <h2 class="text-2xl font-semibold mb-4">Add New Person</h2>
+
+    <form #contactForm="ngForm" (ngSubmit)="saveContact()">
+        <!-- Full Name -->
+        <label class="block mb-2">Full Name:</label>
+        <input type="text" name="name" [(ngModel)]="newContact.name" class="w-full p-3 border rounded" required>
+        
+        <!-- Address -->
+        <label class="block mt-3 mb-2">Address:</label>
+        <input type="text" name="address" [(ngModel)]="newContact.address" class="w-full p-3 border rounded">
+
+        <div class="grid grid-cols-3 gap-4">
+            <!-- City -->
+            <div>
+                <label class="block mt-3 mb-2">City:</label>
+                <input type="text" name="city" [(ngModel)]="newContact.city" class="w-full p-3 border rounded">
+            </div>
+
+            <!-- State -->
+            <div>
+                <label class="block mt-3 mb-2">State:</label>
+                <input type="text" name="state" [(ngModel)]="newContact.state" class="w-full p-3 border rounded">
+            </div>
+
+            <!-- Zip Code -->
+            <div>
+                <label class="block mt-3 mb-2">Zip Code:</label>
+                <input type="text" name="zipCode" [(ngModel)]="newContact.zipCode" class="w-full p-3 border rounded">
+            </div>
+        </div>
+
+        <!-- Phone -->
+        <label class="block mt-3 mb-2">Phone:</label>
+        <input type="text" name="phone" [(ngModel)]="newContact.phone" class="w-full p-3 border rounded" required>
+
+        <!-- Email -->
+        <label class="block mt-3 mb-2">Email:</label>
+        <input type="email" name="email" [(ngModel)]="newContact.email" class="w-full p-3 border rounded">
+
+        <!-- Buttons -->
+        <div class="flex justify-start mt-4">
+            <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700" [disabled]="contactForm.invalid">
+                Save
+            </button>
+            <a routerLink="/" class="bg-gray-600 text-white px-6 py-3 rounded ml-4 hover:bg-gray-700">
+                Cancel
+            </a>
+        </div>
     </form>
-  </div>
-  
+</div>

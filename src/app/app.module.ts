@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddPersonComponent } from './add-person/add-person.component';
 
@@ -16,10 +15,9 @@ import { AddPersonComponent } from './add-person/add-person.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    RouterModule
+    AppRoutingModule,  // ✅ Routing module
+    HttpClientModule,   // ✅ Enables HTTP requests
+    FormsModule         // ✅ Required for [(ngModel)]
   ],
   providers: [],
   bootstrap: [AppComponent]
